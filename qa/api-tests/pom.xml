@@ -9,6 +9,7 @@
         <groupId>com.monish.marketplace</groupId>
         <artifactId>marketplace</artifactId>
         <version>0.1.0</version>
+        <relativePath>../../pom.xml</relativePath> <!-- 👈 points to root parent -->
     </parent>
 
     <artifactId>api-tests</artifactId>
