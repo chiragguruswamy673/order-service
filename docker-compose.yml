@@ -1,0 +1,22 @@
+version: "3.9"   # you can remove this line if you want, it's optional now
+
+services:
+  db:
+    image: postgres:15
+    container_name: marketplace-db
+    environment:
+      POSTGRES_DB: orders
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  order-service:
+    build: ./services/order-service
+    container_name: marketplace-order-service
+    depends_on:
+      - db
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8080:8080"
